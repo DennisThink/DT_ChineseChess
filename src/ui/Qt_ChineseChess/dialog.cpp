@@ -165,6 +165,74 @@ void Dialog::updateStaticMemImage()
                 }
             }
         }
+        {
+            QPoint center;
+            std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::RED_SIDE);
+            for (const auto& item : checkMoves)
+            {
+                center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
+                center.setY(CHESS_START_Y + item._fromGrid._gridY * CHESS_CELL_WIDTH);
+                LineConfig config;
+                config.color = Qt::green;
+                config.penWidth = 2;
+                config.offset = 10;
+                drawSelectionMark(m_staticMemImg, center, CHESS_CELL_WIDTH, config);
+            }
+        }
+        {
+            QPoint center;
+            {
+                std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::BLACK_SIDE);
+                for (const auto& item : checkMoves)
+                {
+                    center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
+                    center.setY(CHESS_START_Y + item._fromGrid._gridY * CHESS_CELL_WIDTH);
+                    LineConfig config;
+                    config.color = Qt::green;
+                    config.penWidth = 2;
+                    config.offset = 10;
+                    drawSelectionMark(m_staticMemImg, center, CHESS_CELL_WIDTH, config);
+                }
+            }
+        }
+    }
+}
+void Dialog::updateCheckStateImage()
+{
+    int CHESS_CELL_WIDTH = 58;
+    int CHESS_START_X = 20;
+    int CHESS_START_Y = 20;
+
+    int chessX = CHESS_START_X;
+    int chessY = CHESS_START_Y;
+    {
+
+        QPoint center;
+        std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::RED_SIDE);
+        for (const auto& item : checkMoves)
+        {
+            center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
+            center.setY(CHESS_START_Y + item._fromGrid._gridY * CHESS_CELL_WIDTH);
+            LineConfig config;
+            config.color = Qt::black;
+            config.penWidth = 2;
+            drawSelectionMark(m_staticMemImg, center, CHESS_CELL_WIDTH, config);
+        }
+    }
+    {
+        QPoint center;
+        {
+            std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::BLACK_SIDE);
+            for (const auto& item : checkMoves)
+            {
+                center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
+                center.setY(CHESS_START_Y + item._fromGrid._gridY * CHESS_CELL_WIDTH);
+                LineConfig config;
+                config.color = Qt::black;
+                config.penWidth = 2;
+                drawSelectionMark(m_staticMemImg, center, CHESS_CELL_WIDTH, config);
+            }
+        }
     }
 }
 void Dialog::updateSelectedMemImage()
@@ -184,10 +252,28 @@ void Dialog::updateSelectedMemImage()
         int CHESS_CELL_WIDTH = 58;
         int CHESS_START_X = 20;
         int CHESS_START_Y = 20;
-        center.setX(CHESS_START_X + m_selectedGrid._gridX * CHESS_CELL_WIDTH);
-        center.setY(CHESS_START_Y + m_selectedGrid._gridY * CHESS_CELL_WIDTH);
-        LineConfig config;
-        drawSelectionMark(m_selectedMemImg, center, CHESS_CELL_WIDTH, config);
+        {
+            center.setX(CHESS_START_X + m_selectedGrid._gridX * CHESS_CELL_WIDTH);
+            center.setY(CHESS_START_Y + m_selectedGrid._gridY * CHESS_CELL_WIDTH);
+            LineConfig config;
+            drawSelectionMark(m_selectedMemImg, center, CHESS_CELL_WIDTH, config);
+        }
+
+        {
+            std::vector<ChessGrid_T> moveableGrids = m_board.GetMoveableGrids(m_selectedGrid);
+            for (const auto& item : moveableGrids)
+            {
+                center.setX(CHESS_START_X + item._gridX * CHESS_CELL_WIDTH);
+                center.setY(CHESS_START_Y + item._gridY * CHESS_CELL_WIDTH);
+                LineConfig config;
+                config.color = Qt::blue;
+                config.penWidth = 2;
+                drawSelectionMark(m_selectedMemImg, center, CHESS_CELL_WIDTH, config);
+            }
+        }
+        
+        
+        
     }
 
 }
@@ -216,6 +302,14 @@ void  Dialog::mousePressEvent(QMouseEvent* event)
                     m_targetGrid.Reset();
                     updateStaticMemImage();
                     updateSelectedMemImage();
+                    if(m_board.IsSideInCheck(ChessColor::RED_SIDE))
+                    {
+                        m_label->setText("RED_SIDE is In Check");
+					}
+                    if (m_board.IsSideInCheck(ChessColor::BLACK_SIDE))
+                    {
+						m_label->setText("Black is In Check");
+                    }
                     update();
                 }
                 else
@@ -330,5 +424,6 @@ void Dialog::drawSelectionMark(QPixmap& pixmap,
 void Dialog::onDrawTimer()
 {
     m_bDrawSelected = !m_bDrawSelected;
+    updateCheckStateImage();
     update();
 }

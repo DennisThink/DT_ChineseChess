@@ -70,6 +70,7 @@ private:
 	ChessGrid_T PointToGrid(const QPoint& pt);
     void updateStaticMemImage();
     void updateSelectedMemImage();
+	void updateCheckStateImage();
     void drawSelectionMark(QPixmap& pixmap,
         const QPoint& topLeft,
         int width,
