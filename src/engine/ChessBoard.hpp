@@ -28,6 +28,7 @@ private:
 	bool OnQueenMove(const ChessMove_T& moveAct);
 	bool OnKingMove(const ChessMove_T& moveAct);
 	bool OnCannonMove(const ChessMove_T& moveAct);
+	bool OnPawnMove(const ChessMove_T& moveAct);
 
     int GetRedKingIndex();
 	int GetBlackKingIndex();

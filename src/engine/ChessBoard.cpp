@@ -525,6 +525,7 @@ void ChessBoard::printBoard()
         }
         return false;
     }
+
     bool ChessBoard::OnCannonMove(const ChessMove_T& moveAct)
     {
         auto& _board = m_board._board;
@@ -641,7 +642,120 @@ void ChessBoard::printBoard()
             {
                 return OnCannonMove(moveAct);
             }
+            if (moveAct._chessMan._manType == ChessMan_T::PAWN_MAN)
+            {
+				return OnPawnMove(moveAct);
+            }
         }
        
+        return false;
+    }
+    bool ChessBoard::OnPawnMove(const ChessMove_T& moveAct)
+    {
+
+        if (moveAct._chessMan._manType == ChessMan_T::PAWN_MAN)
+        {
+            bool bCrossRiver = false;
+            bool bCanMove = false;
+
+            //Pawn can only move one step at a time
+            if (abs(moveAct._toGrid._gridX - moveAct._fromGrid._gridX) + abs(moveAct._toGrid._gridY - moveAct._fromGrid._gridY) != 1)
+            {
+                return false;
+            }
+            auto& _board = m_board._board;
+            int UP_RIVER_SIDE = 4;
+            int DOWN_RIVER_SIDE = 5;
+
+            if (moveAct._chessMan._color == ChessColor::RED_SIDE)
+            {
+                if (0 == m_RedKingIndex)
+                {
+                    //Down,cross river
+                    if (moveAct._fromGrid._gridY >= DOWN_RIVER_SIDE)
+                    {
+                        if (moveAct._toGrid._gridY >= moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                    else
+                    {
+                        if (moveAct._toGrid._gridY > moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                }
+                if (9 == m_RedKingIndex)
+                {
+                    //Down,cross river
+                    if (moveAct._fromGrid._gridY <= UP_RIVER_SIDE)
+                    {
+                        if (moveAct._toGrid._gridY <= moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                    else
+                    {
+                        if (moveAct._toGrid._gridY < moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                }
+            }
+            if (moveAct._chessMan._color == ChessColor::BLACK_SIDE)
+            {
+                if (0 == m_BlackKingIndex)
+                {
+                    //Down,cross river
+                    if (moveAct._fromGrid._gridY >= DOWN_RIVER_SIDE)
+                    {
+                        if (moveAct._toGrid._gridY >= moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                    else
+                    {
+                        if (moveAct._toGrid._gridY > moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                }
+                if (9 == m_BlackKingIndex)
+                {
+                    //Down,cross river
+                    if (moveAct._fromGrid._gridY <= UP_RIVER_SIDE)
+                    {
+                        if (moveAct._toGrid._gridY <= moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                    else
+                    {
+                        if (moveAct._toGrid._gridY < moveAct._fromGrid._gridY)
+                        {
+                            bCanMove = true;
+                        }
+                    }
+                }
+
+            }
+            if (bCanMove)
+            {
+
+                _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY]._color = ChessColor::NONE_SIDE;
+                _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY]._manType = ChessMan_T::NONE_MAN;
+
+                _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY]._color = moveAct._chessMan._color;
+                _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY]._manType = moveAct._chessMan._manType;
+                return true;
+            }
+        }
         return false;
     }
