@@ -22,8 +22,17 @@ public:
     bool IsChessInGrid(const ChessGrid_T& grid, const ChessManBoardElem& chess);
     bool SwapSide();
 private:
+	bool OnRookMove(const ChessMove_T& moveAct);
+	bool OnKnightMove(const ChessMove_T& moveAct);
+	bool OnBishopMove(const ChessMove_T& moveAct);
+	bool OnQueenMove(const ChessMove_T& moveAct);
+	bool OnKingMove(const ChessMove_T& moveAct);
+	bool OnCannonMove(const ChessMove_T& moveAct);
+
     int GetRedKingIndex();
 	int GetBlackKingIndex();
+    int m_RedKingIndex;
+	int m_BlackKingIndex;
     ChineseBoardData_T m_board;
     int _X_MAX_GRID;
     int _Y_MAX_GRID;
