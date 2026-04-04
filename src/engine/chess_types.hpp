@@ -1,13 +1,13 @@
 #ifndef _DT_CHINESE_CHESS_CHESS_TYPES_H_
 #define _DT_CHINESE_CHESS_CHESS_TYPES_H_
-enum ChessColor
+#include <string>
+enum ChessColor_T
 {
     NONE_SIDE = -1,
     RED_SIDE = 0,
     BLACK_SIDE = 1,
     SIDE_COUNT = 2,
 };
-
 
 enum ChessMan_T
 {
@@ -22,10 +22,10 @@ enum ChessMan_T
     MAN_COUNT = 7,
 };
 
-struct ChessManBoardElem
+struct ChessBoardElem_T
 {
-    ChessManBoardElem() { _color = ChessColor::NONE_SIDE;_manType = ChessMan_T::NONE_MAN; }
-    ChessColor _color;
+    ChessBoardElem_T() { _color = ChessColor_T::NONE_SIDE;_manType = ChessMan_T::NONE_MAN; }
+    ChessColor_T _color;
     ChessMan_T _manType;
 };
 struct ChessGrid_T
@@ -44,14 +44,23 @@ struct ChessGrid_T
 
 struct ChessMove_T
 {
-    ChessManBoardElem _chessMan;
+    ChessBoardElem_T _chessMan;
     ChessGrid_T _fromGrid;
     ChessGrid_T _toGrid;
 };
 
-struct ChessManGrid_T
+struct ChessBoardGrid_T
 {
-    ChessManBoardElem _elem;
+    ChessBoardElem_T _elem;
     ChessGrid_T _grid;
 };
+struct ChineseBoardData_T
+{
+    ChessBoardElem_T _board[9][10];
+};
+std::string ToString(const ChessColor_T& color);
+std::string ToString(const ChessMan_T& type);
+std::string ToString(const ChessBoardElem_T& elem);
+std::string ToString(const ChessGrid_T& grid);
+std::string ToString(const ChessMove_T& move);
 #endif

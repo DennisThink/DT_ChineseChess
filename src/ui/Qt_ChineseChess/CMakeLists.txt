@@ -26,6 +26,9 @@ add_executable(${PROJECT_NAME}
     QPixmapManager.cpp
     ../../engine/ChessBoard.hpp
     ../../engine/ChessBoard.cpp
+    ../../engine/ChessNotation.hpp
+    ../../engine/ChessNotation.cpp
+    ../../engine/chess_types.cpp
 )
 
 # Link Qt libraries

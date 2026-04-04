@@ -1,9 +1,9 @@
 #include "CImageManager.h"
 
-const CImage& CImageManager::GetChessManImage(ChessColor color, ChessMan_T manType)
+const CImage& CImageManager::GetChessManImage(ChessColor_T color, ChessMan_T manType)
 {
-	int colorStart = static_cast<int>(ChessColor::NONE_SIDE);
-	int colorEnd = static_cast<int>(ChessColor::SIDE_COUNT);
+	int colorStart = static_cast<int>(ChessColor_T::NONE_SIDE);
+	int colorEnd = static_cast<int>(ChessColor_T::SIDE_COUNT);
 	int colorIndex = static_cast<int>(color);
 
 
@@ -45,7 +45,7 @@ CImageManager::CImageManager()
 	else {
 		// º”‘ÿ ß∞‹¥¶¿Ì
 	}
-	CString allImageNames[ChessColor::SIDE_COUNT][ChessMan_T::MAN_COUNT] = {
+	CString allImageNames[ChessColor_T::SIDE_COUNT][ChessMan_T::MAN_COUNT] = {
 		{_T("red_rook.bmp"),
 		_T("red_knight.bmp"),
 		_T("red_bishop.bmp"),
@@ -61,7 +61,7 @@ CImageManager::CImageManager()
 		_T("black_cannon.bmp"),
 		_T("black_pawn.bmp")}
 	};
-	for (int sideIndex = 0; sideIndex < ChessColor::SIDE_COUNT; sideIndex++)
+	for (int sideIndex = 0; sideIndex < ChessColor_T::SIDE_COUNT; sideIndex++)
 	{
 		for (int manIndex = 0; manIndex < ChessMan_T::MAN_COUNT; manIndex++) 
 		{

@@ -5,13 +5,13 @@
 class QPixmapManager
 {
 public:
-	const QPixmap& GetChessManImage(ChessColor color, ChessMan_T manType);
+	const QPixmap& GetChessManImage(ChessColor_T color, ChessMan_T manType);
 	const QPixmap& GetBoardImage();
 	const QPixmap& GetChessManMaskImage();
 	QPixmapManager();
 private:
 	QPixmap m_boardImage;
 	QPixmap m_ChessManMaskImage;
-	QPixmap m_ChessManImages[ChessColor::SIDE_COUNT][ChessMan_T::MAN_COUNT];
+	QPixmap m_ChessManImages[ChessColor_T::SIDE_COUNT][ChessMan_T::MAN_COUNT];
 };
 #endif

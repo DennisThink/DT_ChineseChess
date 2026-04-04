@@ -49,115 +49,120 @@ void ChessBoard::printBoard()
         {
             for (int y = 0; y < maxY; y++)
             {
-                _board[x][y]._color = ChessColor::NONE_SIDE;
+                _board[x][y]._color = ChessColor_T::NONE_SIDE;
                 _board[x][y]._manType = ChessMan_T::NONE_MAN;
             }
         }
         m_RedKingIndex = 0;
         m_BlackKingIndex = 9;
         //RED SIDE
-        _board[0][0]._color = ChessColor::RED_SIDE;
+        _board[0][0]._color = ChessColor_T::RED_SIDE;
         _board[0][0]._manType = ChessMan_T::ROOK_MAN;
 
-        _board[1][0]._color = ChessColor::RED_SIDE;
+        _board[1][0]._color = ChessColor_T::RED_SIDE;
         _board[1][0]._manType = ChessMan_T::KNIGHT_MAN;
 
-        _board[2][0]._color = ChessColor::RED_SIDE;
+        _board[2][0]._color = ChessColor_T::RED_SIDE;
         _board[2][0]._manType = ChessMan_T::BISHOP_MAN;
 
-        _board[3][0]._color = ChessColor::RED_SIDE;
+        _board[3][0]._color = ChessColor_T::RED_SIDE;
         _board[3][0]._manType = ChessMan_T::QUEEN_MAN;
 
-        _board[4][0]._color = ChessColor::RED_SIDE;
+        _board[4][0]._color = ChessColor_T::RED_SIDE;
         _board[4][0]._manType = ChessMan_T::KING_MAN;
 
-        _board[5][0]._color = ChessColor::RED_SIDE;
+        _board[5][0]._color = ChessColor_T::RED_SIDE;
         _board[5][0]._manType = ChessMan_T::QUEEN_MAN;
 
-        _board[6][0]._color = ChessColor::RED_SIDE;
+        _board[6][0]._color = ChessColor_T::RED_SIDE;
         _board[6][0]._manType = ChessMan_T::BISHOP_MAN;
 
-        _board[7][0]._color = ChessColor::RED_SIDE;
+        _board[7][0]._color = ChessColor_T::RED_SIDE;
         _board[7][0]._manType = ChessMan_T::KNIGHT_MAN;
 
-        _board[8][0]._color = ChessColor::RED_SIDE;
+        _board[8][0]._color = ChessColor_T::RED_SIDE;
         _board[8][0]._manType = ChessMan_T::ROOK_MAN;
 
 
-        _board[1][2]._color = ChessColor::RED_SIDE;
+        _board[1][2]._color = ChessColor_T::RED_SIDE;
         _board[1][2]._manType = ChessMan_T::CANNON_MAN;
 
-        _board[7][2]._color = ChessColor::RED_SIDE;
+        _board[7][2]._color = ChessColor_T::RED_SIDE;
         _board[7][2]._manType = ChessMan_T::CANNON_MAN;
 
-        _board[0][3]._color = ChessColor::RED_SIDE;
+        _board[0][3]._color = ChessColor_T::RED_SIDE;
         _board[0][3]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[2][3]._color = ChessColor::RED_SIDE;
+        _board[2][3]._color = ChessColor_T::RED_SIDE;
         _board[2][3]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[4][3]._color = ChessColor::RED_SIDE;
+        _board[4][3]._color = ChessColor_T::RED_SIDE;
         _board[4][3]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[6][3]._color = ChessColor::RED_SIDE;
+        _board[6][3]._color = ChessColor_T::RED_SIDE;
         _board[6][3]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[8][3]._color = ChessColor::RED_SIDE;
+        _board[8][3]._color = ChessColor_T::RED_SIDE;
         _board[8][3]._manType = ChessMan_T::PAWN_MAN;
 
 
 
         //Black SIDE
-        _board[0][9]._color = ChessColor::BLACK_SIDE;
+        _board[0][9]._color = ChessColor_T::BLACK_SIDE;
         _board[0][9]._manType = ChessMan_T::ROOK_MAN;
 
-        _board[1][9]._color = ChessColor::BLACK_SIDE;
+        _board[1][9]._color = ChessColor_T::BLACK_SIDE;
         _board[1][9]._manType = ChessMan_T::KNIGHT_MAN;
 
-        _board[2][9]._color = ChessColor::BLACK_SIDE;
+        _board[2][9]._color = ChessColor_T::BLACK_SIDE;
         _board[2][9]._manType = ChessMan_T::BISHOP_MAN;
 
-        _board[3][9]._color = ChessColor::BLACK_SIDE;
+        _board[3][9]._color = ChessColor_T::BLACK_SIDE;
         _board[3][9]._manType = ChessMan_T::QUEEN_MAN;
 
-        _board[4][9]._color = ChessColor::BLACK_SIDE;
+        _board[4][9]._color = ChessColor_T::BLACK_SIDE;
         _board[4][9]._manType = ChessMan_T::KING_MAN;
 
-        _board[5][9]._color = ChessColor::BLACK_SIDE;
+        _board[5][9]._color = ChessColor_T::BLACK_SIDE;
         _board[5][9]._manType = ChessMan_T::QUEEN_MAN;
 
-        _board[6][9]._color = ChessColor::BLACK_SIDE;
+        _board[6][9]._color = ChessColor_T::BLACK_SIDE;
         _board[6][9]._manType = ChessMan_T::BISHOP_MAN;
 
-        _board[7][9]._color = ChessColor::BLACK_SIDE;
+        _board[7][9]._color = ChessColor_T::BLACK_SIDE;
         _board[7][9]._manType = ChessMan_T::KNIGHT_MAN;
 
-        _board[8][9]._color = ChessColor::BLACK_SIDE;
+        _board[8][9]._color = ChessColor_T::BLACK_SIDE;
         _board[8][9]._manType = ChessMan_T::ROOK_MAN;
 
 
-        _board[1][7]._color = ChessColor::BLACK_SIDE;
+        _board[1][7]._color = ChessColor_T::BLACK_SIDE;
         _board[1][7]._manType = ChessMan_T::CANNON_MAN;
 
-        _board[7][7]._color = ChessColor::BLACK_SIDE;
+        _board[7][7]._color = ChessColor_T::BLACK_SIDE;
         _board[7][7]._manType = ChessMan_T::CANNON_MAN;
 
-        _board[0][6]._color = ChessColor::BLACK_SIDE;
+        _board[0][6]._color = ChessColor_T::BLACK_SIDE;
         _board[0][6]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[2][6]._color = ChessColor::BLACK_SIDE;
+        _board[2][6]._color = ChessColor_T::BLACK_SIDE;
         _board[2][6]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[4][6]._color = ChessColor::BLACK_SIDE;
+        _board[4][6]._color = ChessColor_T::BLACK_SIDE;
         _board[4][6]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[6][6]._color = ChessColor::BLACK_SIDE;
+        _board[6][6]._color = ChessColor_T::BLACK_SIDE;
         _board[6][6]._manType = ChessMan_T::PAWN_MAN;
 
-        _board[8][6]._color = ChessColor::BLACK_SIDE;
+        _board[8][6]._color = ChessColor_T::BLACK_SIDE;
         _board[8][6]._manType = ChessMan_T::PAWN_MAN;
     }
 
+    bool ChessBoard::SetBoardData(const ChineseBoardData_T& boardData)
+    {
+        m_board = boardData;
+        return true;
+    }
     int ChessBoard::GetRedKingIndex()
     {
         return 0;
@@ -193,7 +198,26 @@ void ChessBoard::printBoard()
         return true;
 
     }
-
+    std::vector<ChessGrid_T> ChessBoard::GetChessGrids(const ChessBoardElem_T& side) const
+    {
+        std::vector<ChessGrid_T> result;
+		int maxX = GetMaxX();
+		int maxY = GetMaxY();
+        for(int x = 0 ; x < maxX; x++)
+        {
+            for (int y = 0; y < maxY;y++)
+            {
+                if (m_board._board[x][y]._color == side._color && m_board._board[x][y]._manType == side._manType)
+                {
+                    ChessGrid_T grid;
+                    grid._gridX = x;
+                    grid._gridY = y;
+					result.push_back(grid);
+                }
+            }
+		}
+        return result;
+    }
     std::vector<ChessGrid_T> ChessBoard::GetMoveableGrids(const ChessGrid_T& curGrid) const
     {
         std::vector<ChessGrid_T> result;
@@ -219,14 +243,14 @@ void ChessBoard::printBoard()
         }
 		return result;
     }
-    const ChessManBoardElem& ChessBoard::GetGridChess(const ChessGrid_T& grid) const
+    const ChessBoardElem_T& ChessBoard::GetGridChess(const ChessGrid_T& grid) const
     {
         if (IsGoodSelectedGrid(grid))
         {
             auto result = m_board._board[grid._gridX][grid._gridY];
             return result;
         }
-        ChessManBoardElem result;
+        ChessBoardElem_T result;
         return result;
     }
     const ChineseBoardData_T& ChessBoard::GetBoardData()
@@ -245,11 +269,11 @@ void ChessBoard::printBoard()
         }
         return false;
     }
-    bool ChessBoard::IsChessInGrid(const ChessGrid_T& grid, const ChessManBoardElem& chess) const
+    bool ChessBoard::IsChessInGrid(const ChessGrid_T& grid, const ChessBoardElem_T& chess) const
     {
         if (IsGridInBoard(grid))
         {
-            ChessManBoardElem elem = m_board._board[grid._gridX][grid._gridY];
+            ChessBoardElem_T elem = m_board._board[grid._gridX][grid._gridY];
             if (chess._color == elem._color && chess._manType == elem._manType)
             {
                 return true;
@@ -542,7 +566,7 @@ void ChessBoard::printBoard()
     bool ChessBoard::CanCannonMove(const ChessMove_T& moveAct) const
     {
         auto& _board = m_board._board;
-        ChessManBoardElem toElem = _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY];
+        ChessBoardElem_T toElem = _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY];
         //Cannon
         if (moveAct._chessMan._manType == ChessMan_T::CANNON_MAN)
         {
@@ -583,12 +607,12 @@ void ChessBoard::printBoard()
                 {
                     auto& fromElem = _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY];
 
-                    if (fromElem._color == ChessColor::RED_SIDE && toElem._color == ChessColor::BLACK_SIDE)
+                    if (fromElem._color == ChessColor_T::RED_SIDE && toElem._color == ChessColor_T::BLACK_SIDE)
                     {
                         return true;
                     }
 
-                    if (fromElem._color == ChessColor::BLACK_SIDE && toElem._color == ChessColor::RED_SIDE)
+                    if (fromElem._color == ChessColor_T::BLACK_SIDE && toElem._color == ChessColor_T::RED_SIDE)
                     {
                         return true;
                     }
@@ -629,12 +653,12 @@ void ChessBoard::printBoard()
                 {
 					auto& fromElem = _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY];
                     
-                    if(fromElem._color == ChessColor::RED_SIDE && toElem._color == ChessColor::BLACK_SIDE)
+                    if(fromElem._color == ChessColor_T::RED_SIDE && toElem._color == ChessColor_T::BLACK_SIDE)
                     {
                         return true;
 					}
 
-                    if (fromElem._color == ChessColor::BLACK_SIDE && toElem._color == ChessColor::RED_SIDE)
+                    if (fromElem._color == ChessColor_T::BLACK_SIDE && toElem._color == ChessColor_T::RED_SIDE)
                     {
                         return true;
                     }
@@ -652,7 +676,7 @@ void ChessBoard::printBoard()
         {
             //bool bCanMove = false;
             //Can not eat yourself
-            ChessManBoardElem toElem = _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY];
+            ChessBoardElem_T toElem = _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY];
             if (toElem._color == moveAct._chessMan._color)
             {
                 return false;
@@ -706,7 +730,7 @@ void ChessBoard::printBoard()
         if(CanMove(moveAct))
         {
             auto& _board = m_board._board;
-            _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY]._color = ChessColor::NONE_SIDE;
+            _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY]._color = ChessColor_T::NONE_SIDE;
             _board[moveAct._fromGrid._gridX][moveAct._fromGrid._gridY]._manType = ChessMan_T::NONE_MAN;
 
             _board[moveAct._toGrid._gridX][moveAct._toGrid._gridY]._color = moveAct._chessMan._color;
@@ -734,7 +758,7 @@ void ChessBoard::printBoard()
             int UP_RIVER_SIDE = 4;
             int DOWN_RIVER_SIDE = 5;
 
-            if (moveAct._chessMan._color == ChessColor::RED_SIDE)
+            if (moveAct._chessMan._color == ChessColor_T::RED_SIDE)
             {
                 if (0 == m_RedKingIndex)
                 {
@@ -773,7 +797,7 @@ void ChessBoard::printBoard()
                     }
                 }
             }
-            if (moveAct._chessMan._color == ChessColor::BLACK_SIDE)
+            if (moveAct._chessMan._color == ChessColor_T::BLACK_SIDE)
             {
                 if (0 == m_BlackKingIndex)
                 {
@@ -821,7 +845,7 @@ void ChessBoard::printBoard()
         return false;
     }
     
-    std::vector<ChessMove_T> ChessBoard::GetAllCheckMoves(ChessColor side) const
+    std::vector<ChessMove_T> ChessBoard::GetAllCheckMoves(ChessColor_T side) const
     {
         std::vector<ChessMove_T> result;
         std::vector<ChessGrid_T> otherSideChessGrids;
@@ -837,8 +861,8 @@ void ChessBoard::printBoard()
                     ChessGrid_T grid;
                     grid._gridX = xIndex;
                     grid._gridY = yIndex;
-                    ChessManBoardElem elem = _board[xIndex][yIndex];
-                    if (elem._color != side && elem._color != ChessColor::NONE_SIDE)
+                    ChessBoardElem_T elem = _board[xIndex][yIndex];
+                    if (elem._color != side && elem._color != ChessColor_T::NONE_SIDE)
                     {
                         otherSideChessGrids.push_back(grid);
                     }
@@ -865,7 +889,7 @@ void ChessBoard::printBoard()
         return result;
     }
 
-    bool ChessBoard::IsSideInCheck(ChessColor side) const
+    bool ChessBoard::IsSideInCheck(ChessColor_T side) const
     {
         std::vector<ChessMove_T> result = GetAllCheckMoves(side);
 		bool bInCheck = !result.empty();

@@ -154,8 +154,8 @@ void Dialog::updateStaticMemImage()
         {
             for (int y = 0; y < maxY; y++)
             {
-                const ChessManBoardElem& elem = board._board[x][y];
-                if (elem._color != ChessColor::NONE_SIDE && elem._manType != ChessMan_T::NONE_MAN)
+                const ChessBoardElem_T& elem = board._board[x][y];
+                if (elem._color != ChessColor_T::NONE_SIDE && elem._manType != ChessMan_T::NONE_MAN)
                 {
                     const QPixmap& chessManImg = m_imgManager.GetChessManImage(elem._color, elem._manType);
                     chessX = CHESS_START_X + CHESS_CELL_WIDTH * x;
@@ -167,7 +167,7 @@ void Dialog::updateStaticMemImage()
         }
         {
             QPoint center;
-            std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::RED_SIDE);
+            std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor_T::RED_SIDE);
             for (const auto& item : checkMoves)
             {
                 center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
@@ -182,7 +182,7 @@ void Dialog::updateStaticMemImage()
         {
             QPoint center;
             {
-                std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::BLACK_SIDE);
+                std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor_T::BLACK_SIDE);
                 for (const auto& item : checkMoves)
                 {
                     center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
@@ -208,7 +208,7 @@ void Dialog::updateCheckStateImage()
     {
 
         QPoint center;
-        std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::RED_SIDE);
+        std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor_T::RED_SIDE);
         for (const auto& item : checkMoves)
         {
             center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
@@ -222,7 +222,7 @@ void Dialog::updateCheckStateImage()
     {
         QPoint center;
         {
-            std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor::BLACK_SIDE);
+            std::vector<ChessMove_T> checkMoves = m_board.GetAllCheckMoves(ChessColor_T::BLACK_SIDE);
             for (const auto& item : checkMoves)
             {
                 center.setX(CHESS_START_X + item._fromGrid._gridX * CHESS_CELL_WIDTH);
@@ -302,11 +302,11 @@ void  Dialog::mousePressEvent(QMouseEvent* event)
                     m_targetGrid.Reset();
                     updateStaticMemImage();
                     updateSelectedMemImage();
-                    if(m_board.IsSideInCheck(ChessColor::RED_SIDE))
+                    if(m_board.IsSideInCheck(ChessColor_T::RED_SIDE))
                     {
                         m_label->setText("RED_SIDE is In Check");
 					}
-                    if (m_board.IsSideInCheck(ChessColor::BLACK_SIDE))
+                    if (m_board.IsSideInCheck(ChessColor_T::BLACK_SIDE))
                     {
 						m_label->setText("Black is In Check");
                     }
@@ -315,8 +315,8 @@ void  Dialog::mousePressEvent(QMouseEvent* event)
                 else
                 {
                     m_targetGrid.Reset();
-                    const ChessManBoardElem& chessMan = m_board.GetGridChess(curGrid);
-                    if (chessMan._color != ChessColor::NONE_SIDE && chessMan._manType != ChessMan_T::NONE_MAN)
+                    const ChessBoardElem_T& chessMan = m_board.GetGridChess(curGrid);
+                    if (chessMan._color != ChessColor_T::NONE_SIDE && chessMan._manType != ChessMan_T::NONE_MAN)
                     {
                         m_selectedGrid = curGrid;
                         m_bChessSelected = true;
@@ -327,8 +327,8 @@ void  Dialog::mousePressEvent(QMouseEvent* event)
             }
             else
             {
-                const ChessManBoardElem& chessMan = m_board.GetGridChess(curGrid);
-                if (chessMan._color != ChessColor::NONE_SIDE && chessMan._manType != ChessMan_T::NONE_MAN)
+                const ChessBoardElem_T& chessMan = m_board.GetGridChess(curGrid);
+                if (chessMan._color != ChessColor_T::NONE_SIDE && chessMan._manType != ChessMan_T::NONE_MAN)
                 {
                     m_selectedGrid = curGrid;
                     m_bChessSelected = true;

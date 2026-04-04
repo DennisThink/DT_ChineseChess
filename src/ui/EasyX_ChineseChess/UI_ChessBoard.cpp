@@ -84,8 +84,8 @@ void UI_ChessBoard::DoMainLoop()
         {
             for (int y = 0; y < maxY; y++)
             {
-                ChessManBoardElem elem = boardData._board[x][y];
-                if (elem._color != ChessColor::NONE_SIDE && elem._manType != ChessMan_T::NONE_MAN)
+                ChessBoardElem_T elem = boardData._board[x][y];
+                if (elem._color != ChessColor_T::NONE_SIDE && elem._manType != ChessMan_T::NONE_MAN)
                 {
                     IMAGE chessManImg = imageManager.GetChessManImage(elem._color, elem._manType);
                     chessX = CHESS_START_X + CHESS_CELL_WIDTH * x;

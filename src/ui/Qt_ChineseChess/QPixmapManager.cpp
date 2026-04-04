@@ -22,7 +22,7 @@ QPixmapManager::QPixmapManager()
 		std::cout << "load mask failed";
 	}
 
-	QString allImageNames[ChessColor::SIDE_COUNT][ChessMan_T::MAN_COUNT] = {
+	QString allImageNames[ChessColor_T::SIDE_COUNT][ChessMan_T::MAN_COUNT] = {
 		{("red_rook.bmp"),
 		("red_knight.bmp"),
 		("red_bishop.bmp"),
@@ -39,7 +39,7 @@ QPixmapManager::QPixmapManager()
 		("black_pawn.bmp")}
 	};
 	QBitmap maskBitmap = m_ChessManMaskImage.createMaskFromColor(Qt::white);
-	for (int sideIndex = 0; sideIndex < ChessColor::SIDE_COUNT; sideIndex++)
+	for (int sideIndex = 0; sideIndex < ChessColor_T::SIDE_COUNT; sideIndex++)
 	{
 		for (int manIndex = 0; manIndex < ChessMan_T::MAN_COUNT; manIndex++)
 		{
@@ -55,10 +55,10 @@ QPixmapManager::QPixmapManager()
 	}
 }
 
-const QPixmap& QPixmapManager::GetChessManImage(ChessColor color, ChessMan_T manType)
+const QPixmap& QPixmapManager::GetChessManImage(ChessColor_T color, ChessMan_T manType)
 {
-	int colorStart = static_cast<int>(ChessColor::NONE_SIDE);
-	int colorEnd = static_cast<int>(ChessColor::SIDE_COUNT);
+	int colorStart = static_cast<int>(ChessColor_T::NONE_SIDE);
+	int colorEnd = static_cast<int>(ChessColor_T::SIDE_COUNT);
 	int colorIndex = static_cast<int>(color);
 
 

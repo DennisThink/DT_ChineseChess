@@ -1,4 +1,4 @@
-#ifndef _DT_CHINESE_CHESS_IMAGE_MANAGER_H_
+#ifndef _DT_CHINESE_CHESS_IMAGE_MANAGER_H_ 
 #define _DT_CHINESE_CHESS_IMAGE_MANAGER_H_
 #include "chess_types.hpp"
 #include <vector>
@@ -12,14 +12,14 @@ struct ChessManElem
 
 struct ImageElem
 {
-	ChessColor _color;
+	ChessColor_T _color;
 	ChessMan_T _manType;
 	IMAGE _img;
 };
 class ChessManImageManager
 {
 public:
-	IMAGE GetChessManImage(ChessColor color, ChessMan_T manType);
+	IMAGE GetChessManImage(ChessColor_T color, ChessMan_T manType);
 	IMAGE GetBoardImage();
 	IMAGE GetChessManMaskImage();
 	ChessManImageManager();
